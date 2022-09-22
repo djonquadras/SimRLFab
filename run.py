@@ -23,3 +23,4 @@ environment_production.environment.statistics.update({'time_end': environment_pr
 export_statistics_logging(statistics=environment_production.environment.statistics,
                           parameters=environment_production.environment.parameters,
                           resources=environment_production.environment.resources)
+

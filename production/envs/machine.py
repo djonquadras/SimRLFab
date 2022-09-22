@@ -7,8 +7,19 @@ import numpy as np
 class Machine(Resource):
     agent = None
 
-    def __init__(self, env, id, capacity, agent_type, machine_group, statistics, parameters, resources, agents,
-                 time_calc, location, label):
+    def __init__(self,
+                    env,
+                    id,
+                    capacity,
+                    agent_type,
+                    machine_group,
+                    statistics,
+                    parameters,
+                    resources,
+                    agents,
+                    time_calc,
+                    location,
+                    label):
         Resource.__init__(self, statistics, parameters, resources, agents, time_calc, location)
         print("Machine %s created" % id)
         self.env = env
@@ -37,8 +48,12 @@ class Machine(Resource):
         self.env.process(self.break_machine())
         self.agent_type = agent_type
         if agent_type == "FIFO":
-            self.agent = Decision_Heuristic_Machine_FIFO(env=self.env, statistics=statistics, parameters=parameters,
-                                                         resources=resources, agents=agents, agents_resource=self)
+            self.agent = Decision_Heuristic_Machine_FIFO(env=self.env,
+                                                            statistics=statistics,
+                                                            parameters=parameters,
+                                                            resources=resources,
+                                                            agents=agents,
+                                                            agents_resource=self)
         self.machine_group = machine_group
         self.counter = 0
         self.sum_reward = 0

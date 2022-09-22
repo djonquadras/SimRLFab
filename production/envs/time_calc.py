@@ -24,7 +24,9 @@ class Time_calc:
 
     def processing_time(self, machine, statistics, parameters, order):
         """Return actual processing time for a concrete part."""
-        result_time = min(parameters['MAX_PROCESS_TIME'][machine.id], max(parameters['MIN_PROCESS_TIME'][machine.id], self.randomStreams["process_time"][machine.id].exponential(scale=parameters['AVERAGE_PROCESS_TIME'][machine.id])))
+        result_time = min(parameters['MAX_PROCESS_TIME'][machine.id],
+                            max(parameters['MIN_PROCESS_TIME'][machine.id],
+                            self.randomStreams["process_time"][machine.id].exponential(scale=parameters['AVERAGE_PROCESS_TIME'][machine.id])))
         statistics['stat_machines_working'][machine.id] += result_time
         return result_time
 
